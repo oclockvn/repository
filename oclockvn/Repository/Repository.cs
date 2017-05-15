@@ -19,8 +19,7 @@ namespace oclockvn.Repository
             table = db.Set<T>();
         }
 
-        public IQueryable<T> All 
-            => table.AsQueryable();
+        public IQueryable<T> All => table.AsQueryable();
 
         public int Delete(Expression<Func<T, bool>> where)
         {
@@ -33,8 +32,7 @@ namespace oclockvn.Repository
             return found.Count();
         }
 
-        public T Delete(TKey id) 
-            => table.Remove(Get(id));
+        public T Delete(TKey id) => table.Remove(Get(id));
 
         public async Task<int> DeleteAsync(Expression<Func<T, bool>> where)
         {
@@ -47,19 +45,11 @@ namespace oclockvn.Repository
             return await found.CountAsync();
         }
 
-        public async Task<T> DeleteAsync(TKey id) 
-            => table.Remove(await GetAsync(id));
+        public async Task<T> DeleteAsync(TKey id) => table.Remove(await GetAsync(id));
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+        public T Get(TKey id) => table.Find(id);
 
-        public T Get(TKey id) 
-            => table.Find(id);
-
-        public T Get(Expression<Func<T, bool>> where, params Expression<Func<T, object>>[] includes) 
-            => All.Including(includes).FirstOrDefault(where);
+        public T Get(Expression<Func<T, bool>> where, params Expression<Func<T, object>>[] includes) => All.Including(includes).FirstOrDefault(where);
 
         public List<T> GetAll(Expression<Func<T, bool>> where = null, params Expression<Func<T, object>>[] includes) 
             => where == null ? All.Including(includes).ToList() : All.Including(includes).Where(where).ToList();

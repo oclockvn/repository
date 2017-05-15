@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace oclockvn.Repository
 {
-    public interface IRepository<TKey, T> : IDisposable where T : class
+    public interface IRepository<TKey, T> where T : class
     {
         IQueryable<T> All { get; }
         T Get(TKey id);

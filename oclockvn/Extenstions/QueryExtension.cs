@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace oclockvn.Extenstions
 {
-    public static class QueryExtensionMethod
+    public static class QueryExtension
     {
         public static IQueryable<T> Including<T>(this IQueryable<T> self, params Expression<Func<T, object>>[] includeProperties) where T : class
         {
