@@ -21,6 +21,8 @@ namespace oclockvn.Repository
 
         public IQueryable<T> All => table.AsQueryable();
 
+        public T Create(T entity) => table.Add(entity);
+
         public void Delete(Expression<Func<T, bool>> where)
         {
             var found = All.Where(where);
