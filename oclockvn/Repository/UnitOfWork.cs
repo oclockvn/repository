@@ -18,10 +18,7 @@ namespace oclockvn.Repository
 #endif
         }
 
-        public IRepository<TKey, T> Get<TKey, T>() where T : class
-        {
-            return new Repository<TKey, T>(db.Value);
-        }
+        public IRepository<TKey, T> Get<TKey, T>() where T : class => new Repository<TKey, T>(db.Value);
 
         public Tuple<int, Exception> Commit()
         {
