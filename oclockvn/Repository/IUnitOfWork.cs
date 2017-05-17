@@ -5,7 +5,7 @@ namespace oclockvn.Repository
     public interface IUnitOfWork : IDisposable
     {
         /// <summary>
-        /// save all changes in db context
+        /// save all changes in db context and return total effected records.
         /// </summary>
         /// <returns>If success, return a tuple with effected record. Otherwise return tuple with exception</returns>
         Tuple<int, Exception> Commit();
