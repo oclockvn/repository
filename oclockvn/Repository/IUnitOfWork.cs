@@ -11,11 +11,10 @@ namespace oclockvn.Repository
         Tuple<int, Exception> Commit();
 
         /// <summary>
-        /// get repository with specific entity
+        /// get repository for specific entity
         /// </summary>
-        /// <typeparam name="TKey">typeof primary key of entity</typeparam>
         /// <typeparam name="T">typeof entity</typeparam>
         /// <returns>A repository of type T</returns>
-        IRepository<TKey, T> Get<TKey, T>() where T : class;
+        IRepository<T> Get<T>() where T : class;
     }
 }
