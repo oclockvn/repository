@@ -14,7 +14,7 @@ namespace oclockvn.Repository
         List<T> GetAll(Expression<Func<T, bool>> where = null, params Expression<Func<T, object>>[] includes);
         T Delete(object id);
         void Delete(Expression<Func<T, bool>> where);
-        T Update(T entity, List<Expression<Func<T, object>>> updateProperties = null);
+        T Update(T entity, List<Expression<Func<T, object>>> updateProperties = null, List<Expression<Func<T, object>>> excludeProperties = null);
 
         //
         // async version

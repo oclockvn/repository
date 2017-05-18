@@ -50,14 +50,22 @@ namespace oclockvn.Repository
 
         public async Task<T> GetAsync(Expression<Func<T, bool>> where, params Expression<Func<T, object>>[] includes) => await All.Including(includes).FirstOrDefaultAsync(where);
 
-        public T Update(T entity, List<Expression<Func<T, object>>> updateProperties = null)
+        public T Update(T entity, List<Expression<Func<T, object>>> updateProperties = null, List<Expression<Func<T, object>>> excludeProperties = null)
         {
             table.Attach(entity);
 
             if (updateProperties == null || updateProperties.Count == 0)
+            {
                 db.Entry<T>(entity).State = EntityState.Modified;
+                if (excludeProperties != null && excludeProperties.Count > 0)
+                {
+                    excludeProperties.ForEach(p => db.Entry<T>(entity).Property(p).IsModified = false);
+                }
+            }
             else
-                updateProperties.ForEach(p => db.Entry<T>(entity).Property(p).IsModified = true);
+            {
+                updateProperties.ForEach(p => db.Entry<T>(entity).Property(p).IsModified = true);                
+            }
 
             return entity;
         }
