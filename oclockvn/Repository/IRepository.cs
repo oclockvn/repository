@@ -37,6 +37,13 @@ namespace oclockvn.Repository
         List<T> GetAll(Expression<Func<T, bool>> where = null, params Expression<Func<T, object>>[] includes);
 
         /// <summary>
+        /// Add entity to local
+        /// </summary>
+        /// <param name="entity">The entity to add</param>
+        /// <returns>The added entity</returns>
+        T Create(T entity);
+
+        /// <summary>
         /// Delete entity by primary key
         /// </summary>
         /// <param name="id">The primary key to find entity to delete</param>
