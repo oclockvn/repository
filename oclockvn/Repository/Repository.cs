@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace oclockvn.Repository
 {
-    public class Repository<TKey, T> : IRepository<TKey, T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly DbContext db;
         private readonly DbSet<T> table;
@@ -30,13 +30,13 @@ namespace oclockvn.Repository
             }
         }
 
-        public T Delete(TKey id)
+        public T Delete(object id)
         {
             var entity = Get(id);
             return entity == null ? null : table.Remove(entity);
         }
 
-        public T Get(TKey id) => table.Find(id);
+        public T Get(object id) => table.Find(id);
 
         public T Get(Expression<Func<T, bool>> where, params Expression<Func<T, object>>[] includes) => All.Including(includes).FirstOrDefault(where);
 
@@ -46,7 +46,7 @@ namespace oclockvn.Repository
         public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>> where = null, params Expression<Func<T, object>>[] includes)
             => where == null ? await All.AsNoTracking().Including(includes).ToListAsync() : await All.AsNoTracking().Including(includes).Where(where).ToListAsync();
 
-        public async Task<T> GetAsync(TKey id) => await table.FindAsync(id);
+        public async Task<T> GetAsync(object id) => await table.FindAsync(id);
 
         public async Task<T> GetAsync(Expression<Func<T, bool>> where, params Expression<Func<T, object>>[] includes) => await All.Including(includes).FirstOrDefaultAsync(where);
 
