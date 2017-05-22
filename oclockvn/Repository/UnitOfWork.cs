@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Linq;
 
 namespace oclockvn.Repository
 {
@@ -69,6 +71,16 @@ namespace oclockvn.Repository
             }
 
             disposed = true;
+        }
+
+        public int ExecuteSql(string query, params object[] args)
+        {
+            return db.Value.Database.ExecuteSqlCommand(query, args);
+        }
+
+        public List<T> ExecuteSql<T>(string query, params object[] args)
+        {
+            return db.Value.Database.SqlQuery<T>(query, args).ToList<T>();
         }
     }
 }
