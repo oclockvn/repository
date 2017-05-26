@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="MoneyExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="i18n\AppResources.en.resx">
