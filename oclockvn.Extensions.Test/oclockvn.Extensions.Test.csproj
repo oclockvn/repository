@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DateTimeExtensionTest.cs" />
     <Compile Include="ExceptionExtenstionTests.cs" />
+    <Compile Include="MoneyExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
