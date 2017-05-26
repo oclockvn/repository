@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="ExceptionExtensions.cs" />
     <Compile Include="i18n\AppResources.en.Designer.cs">
       <DependentUpon>AppResources.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
