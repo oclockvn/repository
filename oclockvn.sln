@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oclockvn.Extensions", "oclo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oclockvn.Extensions.Test", "oclockvn.Extensions.Test\oclockvn.Extensions.Test.csproj", "{128540F2-5525-48DF-9D03-1F859030D4BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oclockvn.Extensions.Web", "oclockvn.Extensions.Web\oclockvn.Extensions.Web.csproj", "{69A34EE0-3604-4D42-981A-445B31318C44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{128540F2-5525-48DF-9D03-1F859030D4BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{128540F2-5525-48DF-9D03-1F859030D4BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{128540F2-5525-48DF-9D03-1F859030D4BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69A34EE0-3604-4D42-981A-445B31318C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A34EE0-3604-4D42-981A-445B31318C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A34EE0-3604-4D42-981A-445B31318C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A34EE0-3604-4D42-981A-445B31318C44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
