@@ -1,5 +1,9 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace oclockvn.Extensions
 {
@@ -62,6 +66,46 @@ namespace oclockvn.Extensions
 
             // cut and trim            
             return slug.Truncate(length, string.Empty);
+        }
+
+        /// <summary>
+        /// Capital string like: 'lorem ipsum dolor sit amet' -> 'Lorem Ipsum Dolor Sit Amet'
+        /// </summary>
+        /// <param name="input">The input string</param>
+        /// <returns>The capitalized string</returns>
+        public static string ToCapitalize(this string input)
+        {
+            if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
+                return string.Empty;
+
+            CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
+            TextInfo textInfo = cultureInfo.TextInfo;
+
+            return textInfo.ToTitleCase(input.Trim());
+        }
+
+        /// <summary>
+        /// create an list string from given string, split by specify pattern
+        /// </summary>
+        /// <param name="input">The input string</param>
+        /// <param name="splitPattern">The pattern used to split input string</param>
+        /// <returns>The collection contains splited parts</returns>
+        public static List<string> ToCollection(this string input, string splitPattern = "\r\n")
+        {
+            List<string> results = new List<string>();
+
+            if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
+                return results;
+
+            var splits = Regex.Split(input.Trim(), splitPattern);
+            if (splits != null && splits.Length > 0)
+            {
+                results = (from i in splits
+                           where !string.IsNullOrEmpty(i) && !string.IsNullOrWhiteSpace(i)
+                           select i).ToList();
+            }
+
+            return results;
         }
     }
 }
