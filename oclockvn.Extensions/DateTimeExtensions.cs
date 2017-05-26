@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using oclockvn.Extensions.i18n;
+using System;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using oclockvn.Extensions.i18n;
 
 namespace oclockvn.Extensions
 {
