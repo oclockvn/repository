@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oclockvn", "oclockvn\oclock
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oclockvn.Extensions", "oclockvn.Extensions\oclockvn.Extensions.csproj", "{605721D4-1EED-4F79-A4CF-91B36332C767}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oclockvn.Extensions.Test", "oclockvn.Extensions.Test\oclockvn.Extensions.Test.csproj", "{128540F2-5525-48DF-9D03-1F859030D4BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{605721D4-1EED-4F79-A4CF-91B36332C767}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{605721D4-1EED-4F79-A4CF-91B36332C767}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{605721D4-1EED-4F79-A4CF-91B36332C767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{128540F2-5525-48DF-9D03-1F859030D4BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{128540F2-5525-48DF-9D03-1F859030D4BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{128540F2-5525-48DF-9D03-1F859030D4BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{128540F2-5525-48DF-9D03-1F859030D4BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
