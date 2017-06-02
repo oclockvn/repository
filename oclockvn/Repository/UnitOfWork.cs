@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace oclockvn.Repository
 {
@@ -52,6 +53,36 @@ namespace oclockvn.Repository
             return new Tuple<int, Exception>(0, exception);
         }
 
+        public async Task<Tuple<int, Exception>> CommitAsync()
+        {
+            Exception exception = null;
+            //var msg = string.Empty;
+            try
+            {
+                var record = await db.Value.SaveChangesAsync();
+                return new Tuple<int, Exception>(record, exception);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                exception = ex;
+                //msg = string.Join(", ",
+                //    ex.EntityValidationErrors
+                //    .SelectMany(e => e.ValidationErrors)
+                //    .SelectMany(e => $"Property: {e.PropertyName} -> {e.ErrorMessage}"));
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+                //msg = ex.ToErrorMessage();
+            }
+
+            // send email to config account
+            // MailHelper.SendMail(string.Empty, string.Empty, "Save changes error", msg);
+            // return new Tuple<bool, string>(false, msg);
+
+            return new Tuple<int, Exception>(0, exception);
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -73,14 +104,9 @@ namespace oclockvn.Repository
             disposed = true;
         }
 
-        public int ExecuteSql(string query, params object[] args)
-        {
-            return db.Value.Database.ExecuteSqlCommand(query, args);
-        }
-
-        public List<T> ExecuteSql<T>(string query, params object[] args)
-        {
-            return db.Value.Database.SqlQuery<T>(query, args).ToList<T>();
-        }
+        public int ExecuteSql(string query, params object[] args) => db.Value.Database.ExecuteSqlCommand(query, args);
+        public async Task<int> ExecuteSqlAsync(string query, params object[] args) => await db.Value.Database.ExecuteSqlCommandAsync(query, args);
+        public List<T> ExecuteSql<T>(string query, params object[] args) => db.Value.Database.SqlQuery<T>(query, args).ToList<T>();
+        public async Task<List<T>> ExecuteSqlAsync<T>(string query, params object[] args) => await db.Value.Database.SqlQuery<T>(query, args).ToListAsync();
     }
 }

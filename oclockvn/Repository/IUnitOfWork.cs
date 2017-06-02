@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace oclockvn.Repository
 {
@@ -10,6 +11,7 @@ namespace oclockvn.Repository
         /// </summary>
         /// <returns>If success, return a tuple with effected record. Otherwise return tuple with exception</returns>
         Tuple<int, Exception> Commit();
+        Task<Tuple<int, Exception>> CommitAsync();
 
         /// <summary>
         /// get repository for specific entity
@@ -25,6 +27,7 @@ namespace oclockvn.Repository
         /// <param name="args">a list of sql parameters</param>
         /// <returns>Total effected records</returns>
         int ExecuteSql(string query, params object[] args);
+        Task<int> ExecuteSqlAsync(string query, params object[] args);
 
         /// <summary>
         /// Execute select query
@@ -34,5 +37,6 @@ namespace oclockvn.Repository
         /// <param name="args">a list of sql parameters</param>
         /// <returns>The collection of query</returns>
         List<T> ExecuteSql<T>(string query, params object[] args);
+        Task<List<T>> ExecuteSqlAsync<T>(string query, params object[] args);
     }
 }
