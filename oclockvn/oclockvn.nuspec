@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>oclockvn.repository</id>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <title>Repository for Entity Framework</title>
     <authors>oclockvn</authors>
     <owners>oclockvn</owners>
@@ -11,7 +11,7 @@
     <iconUrl>https://github.com/oclockvn/repository</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>The generic repository and unit of work pattern for entity framework</description>
-    <releaseNotes>Added async methods for unit of work</releaseNotes>
+    <releaseNotes>Rename async methods for unit of work</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>entityframework repository unitofwork</tags>
   </metadata>
