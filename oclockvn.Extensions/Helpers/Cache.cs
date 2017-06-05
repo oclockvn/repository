@@ -22,5 +22,11 @@ namespace oclockvn.Extensions.Helpers
                 return default(T);
             }
         }
+
+        public void Remove(string key)
+        {
+            if (cache.Contains(key))
+                cache.Remove(key);
+        }
     }
 }
