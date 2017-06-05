@@ -36,7 +36,7 @@ namespace oclockvn.Repository
         /// <param name="query">a string of select query</param>
         /// <param name="args">a list of sql parameters</param>
         /// <returns>The collection of query</returns>
-        List<T> ExecuteSql<T>(string query, params object[] args);
-        Task<List<T>> ExecuteSqlAsync<T>(string query, params object[] args);
+        List<T> SqlQuery<T>(string query, params object[] args);
+        Task<List<T>> SqlQueryAsync<T>(string query, params object[] args);
     }
 }

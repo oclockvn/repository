@@ -106,7 +106,7 @@ namespace oclockvn.Repository
 
         public int ExecuteSql(string query, params object[] args) => db.Value.Database.ExecuteSqlCommand(query, args);
         public async Task<int> ExecuteSqlAsync(string query, params object[] args) => await db.Value.Database.ExecuteSqlCommandAsync(query, args);
-        public List<T> ExecuteSql<T>(string query, params object[] args) => db.Value.Database.SqlQuery<T>(query, args).ToList<T>();
-        public async Task<List<T>> ExecuteSqlAsync<T>(string query, params object[] args) => await db.Value.Database.SqlQuery<T>(query, args).ToListAsync();
+        public List<T> SqlQuery<T>(string query, params object[] args) => db.Value.Database.SqlQuery<T>(query, args).ToList<T>();
+        public async Task<List<T>> SqlQueryAsync<T>(string query, params object[] args) => await db.Value.Database.SqlQuery<T>(query, args).ToListAsync();
     }
 }
