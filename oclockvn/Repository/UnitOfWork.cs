@@ -83,6 +83,19 @@ namespace oclockvn.Repository
             return new Tuple<int, Exception>(0, exception);
         }
 
+        public int SaveChanges()
+        {
+            // If any error throw, handle exception by your own way
+            var record = db.Value.SaveChanges();
+            return record;
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            var record = await db.Value.SaveChangesAsync();
+            return record;
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -107,6 +120,6 @@ namespace oclockvn.Repository
         public int ExecuteSql(string query, params object[] args) => db.Value.Database.ExecuteSqlCommand(query, args);
         public async Task<int> ExecuteSqlAsync(string query, params object[] args) => await db.Value.Database.ExecuteSqlCommandAsync(query, args);
         public List<T> SqlQuery<T>(string query, params object[] args) => db.Value.Database.SqlQuery<T>(query, args).ToList<T>();
-        public async Task<List<T>> SqlQueryAsync<T>(string query, params object[] args) => await db.Value.Database.SqlQuery<T>(query, args).ToListAsync();
+        public async Task<List<T>> SqlQueryAsync<T>(string query, params object[] args) => await db.Value.Database.SqlQuery<T>(query, args).ToListAsync();        
     }
 }

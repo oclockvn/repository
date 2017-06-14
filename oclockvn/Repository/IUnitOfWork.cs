@@ -8,10 +8,24 @@ namespace oclockvn.Repository
     {
         /// <summary>
         /// save all changes in db context and return total effected records.
+        /// 
+        /// Using Commit if you dont want any exception thow, if your framework already willing to handle exception, use SaveChanges below
         /// </summary>
         /// <returns>If success, return a tuple with effected record. Otherwise return tuple with exception</returns>
         Tuple<int, Exception> Commit();
         Task<Tuple<int, Exception>> CommitAsync();
+
+        /// <summary>
+        /// Save any change in database context. Throw exception if any.
+        /// </summary>
+        /// <returns>Total effected records</returns>
+        int SaveChanges();
+
+        /// <summary>
+        /// Save any change in database context, with async task
+        /// </summary>
+        /// <returns>Total effected records</returns>
+        Task<int> SaveChangesAsync();
 
         /// <summary>
         /// get repository for specific entity
