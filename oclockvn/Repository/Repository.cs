@@ -23,9 +23,9 @@ namespace oclockvn.Repository
 
         public T Create(T entity) => table.Add(entity);
 
-        public void Delete(Expression<Func<T, bool>> where)
+        public void Delete(Expression<Func<T, bool>> where, params Expression<Func<T, object>>[] includes)
         {
-            var found = All.Where(where);
+            var found = All.Including(includes).Where(where);
             foreach (var item in found)
             {
                 table.Remove(item);

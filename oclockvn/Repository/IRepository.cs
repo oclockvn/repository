@@ -54,7 +54,8 @@ namespace oclockvn.Repository
         /// Delete set of entities with condition
         /// </summary>
         /// <param name="where">The predicate to filter entities to delete</param>
-        void Delete(Expression<Func<T, bool>> where);
+        /// <param name="includes">Expression params to include navigation property.</param>
+        void Delete(Expression<Func<T, bool>> where, params Expression<Func<T, object>>[] includes);
 
         /// <summary>
         /// Attach then update entity, can specify properties to update, or update all except exclude properties
