@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>oclockvn.repository</id>
-    <version>1.0.5</version>
+    <version>1.1</version>
     <title>Repository for Entity Framework</title>
     <authors>oclockvn</authors>
     <owners>oclockvn</owners>
@@ -11,8 +11,8 @@
     <iconUrl>https://github.com/oclockvn/repository</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>The generic repository and unit of work pattern for entity framework</description>
-    <releaseNotes>Add savechanges without catch exception, you must handle by your own way</releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <releaseNotes>Removed UnitOfWork Commit/CommitAsync (I see them useless), removed Lazy DbContext as well (again I see it unnecessary)</releaseNotes>
+    <copyright>Copyright 2018</copyright>
     <tags>entityframework repository unitofwork</tags>
   </metadata>
 </package>
