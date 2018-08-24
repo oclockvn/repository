@@ -7,15 +7,6 @@ namespace oclockvn.Repository
     public interface IUnitOfWork : IDisposable
     {
         /// <summary>
-        /// save all changes in db context and return total effected records.
-        /// 
-        /// Using Commit if you dont want any exception thow, if your framework already willing to handle exception, use SaveChanges below
-        /// </summary>
-        /// <returns>If success, return a tuple with effected record. Otherwise return tuple with exception</returns>
-        Tuple<int, Exception> Commit();
-        Task<Tuple<int, Exception>> CommitAsync();
-
-        /// <summary>
         /// Save any change in database context. Throw exception if any.
         /// </summary>
         /// <returns>Total effected records</returns>
@@ -23,6 +14,7 @@ namespace oclockvn.Repository
 
         /// <summary>
         /// Save any change in database context, with async task
+        /// Usage: int saved = await SaveChangesAsync();
         /// </summary>
         /// <returns>Total effected records</returns>
         Task<int> SaveChangesAsync();
@@ -35,22 +27,37 @@ namespace oclockvn.Repository
         IRepository<T> Get<T>() where T : class;
 
         /// <summary>
-        /// Execute command query
+        /// Execute command queries like insert, update, delete
         /// </summary>
         /// <param name="query">a string of query command</param>
         /// <param name="args">a list of sql parameters</param>
         /// <returns>Total effected records</returns>
         int ExecuteSql(string query, params object[] args);
+
+        /// <summary>
+        /// Execute command queries like insert, update, delete asynchronous.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <param name="args">The arguments.</param>
+        /// <returns></returns>
         Task<int> ExecuteSqlAsync(string query, params object[] args);
 
         /// <summary>
-        /// Execute select query
+        /// Execute queries sort of select, store proc or function
         /// </summary>
         /// <typeparam name="T">typeof return result</typeparam>
         /// <param name="query">a string of select query</param>
         /// <param name="args">a list of sql parameters</param>
         /// <returns>The collection of query</returns>
         List<T> SqlQuery<T>(string query, params object[] args);
+
+        /// <summary>
+        /// Execute queries sort of select, store proc or function asynchronous.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query">The query.</param>
+        /// <param name="args">The arguments.</param>
+        /// <returns></returns>
         Task<List<T>> SqlQueryAsync<T>(string query, params object[] args);
     }
 }

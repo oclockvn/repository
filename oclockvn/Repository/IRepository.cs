@@ -95,7 +95,7 @@ namespace oclockvn.Repository
         /// Get all entities include navigation properties using Task.
         /// 
         /// Usage: 
-        /// List<T> list = await GetAllAsync(x => x.Id == id);
+        /// var list = await GetAllAsync(x => x.Id == id);
         /// </summary>
         /// <param name="where">The predicate to filter entities return</param>
         /// <param name="includes">Expression params to include navigation property.</param>
