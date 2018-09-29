@@ -2,8 +2,8 @@
 <package >
   <metadata>
     <id>oclockvn.repository</id>
-    <version>1.1</version>
-    <title>Repository for Entity Framework</title>
+    <version>1.2</version>
+    <title>Generic Repository for Entity Framework</title>
     <authors>oclockvn</authors>
     <owners>oclockvn</owners>
     <licenseUrl>https://github.com/oclockvn/repository</licenseUrl>
@@ -11,7 +11,7 @@
     <iconUrl>https://github.com/oclockvn/repository</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>The generic repository and unit of work pattern for entity framework</description>
-    <releaseNotes>Removed UnitOfWork Commit/CommitAsync (I see them useless), removed Lazy DbContext as well (again I see it unnecessary)</releaseNotes>
+    <releaseNotes>I might published the wrong package in the last time, so I republish again</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>entityframework repository unitofwork</tags>
   </metadata>
