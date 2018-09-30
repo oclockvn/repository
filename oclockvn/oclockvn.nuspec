@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>oclockvn.repository</id>
-    <version>1.2</version>
+    <version>1.2.2</version>
     <title>Generic Repository for Entity Framework</title>
     <authors>oclockvn</authors>
     <owners>oclockvn</owners>
@@ -11,7 +11,7 @@
     <iconUrl>https://github.com/oclockvn/repository</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>The generic repository and unit of work pattern for entity framework</description>
-    <releaseNotes>I might published the wrong package in the last time, so I republish again</releaseNotes>
+    <releaseNotes>Added paging extension</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>entityframework repository unitofwork</tags>
   </metadata>
